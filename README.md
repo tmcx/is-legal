@@ -15,8 +15,14 @@ npm install is-legal
 ```javascript
 import isLegal from 'is-legal';
 
-const age = 20;
-console.log(isLegal(age)); // true
+try {
+  console.log(isLegal(20)); // true
+  console.log(isLegal(15)); // false
+  console.log(isLegal(-5)); // Error: The age cannot be a negative number.
+  console.log(isLegal('18')); // Error: The age must be a valid number.
+} catch (error) {
+  console.error(error.message);
+}
 ```
 
 
